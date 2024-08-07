@@ -1,0 +1,30 @@
+:host {
+    display: block;
+
+    .block-types {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 2%;
+        gap: 2%;
+        justify-items: center;
+    }
+
+    .button-3-img {
+        width: 80px !important;
+        height: 100px !important;
+        position: relative;
+
+        img {
+            max-width: 75%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 0.25rem;
+        }
+
+        span {
+            position: absolute;
+            top: 80%;
+            width: 100%;
+        }
+    }
+}

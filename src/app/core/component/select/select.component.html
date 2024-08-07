@@ -1,0 +1,10 @@
+<p class="text-xs title text-center">{{ title }}</p>
+<div class="select-skew flex flex-row items-center py-0">
+
+    <select class="w-full select component select-sm max-w-xs text-xs" [(ngModel)]="target"
+        (change)="changeEvent($event)">
+        @for (op of options; track op.id) {
+        <option [value]="op.id">{{ op.label }}</option>
+        }
+    </select>
+</div>

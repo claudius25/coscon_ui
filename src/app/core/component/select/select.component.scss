@@ -1,0 +1,29 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+
+    .title {
+        color: white;
+    }
+
+    .select-skew {
+        width: 100%;
+        color: #fff;
+        font-weight: 100;
+        border-radius: 1rem;
+        padding-top: 0rem;
+        padding-bottom: 0rem;
+        background-color: #312c5177;
+
+        select {
+            background-color: unset;
+            color: #fff;
+            text-align: center;
+            font-weight: 900;
+            padding: 0;
+            width: 100%;
+        }
+    }
+}

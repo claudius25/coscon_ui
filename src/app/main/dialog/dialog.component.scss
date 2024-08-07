@@ -1,0 +1,18 @@
+:host {
+  color: #222;
+
+  .modal-box {
+    background-color: var(--bg-color);
+    padding: 0;
+  }
+
+  h3 {
+    color: white;
+  }
+
+  .close-btn {
+    &:focus {
+      outline: none;
+    }
+  }
+}

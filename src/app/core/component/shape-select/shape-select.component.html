@@ -1,0 +1,16 @@
+@if (constructionToEdit) {
+<!-- <app-select [target]="constructionToEdit.geometri.shape" [options]="shapes" [title]="'common.shape' | translate"
+    (changed)="refreshShape($event)">
+</app-select> -->
+
+<div class="block-types">
+    @for(type of shapes; track type.id) {
+
+    <div class="button-3-img" [class.selected]="type.selected" (click)="refreshShape(type.id)">
+        <img [src]="'./assets/images/shapes' + type.img" />
+        <span class="block-title font-thin">{{ type.label }}</span>
+    </div>
+
+    }
+</div>
+}

@@ -1,0 +1,19 @@
+<div class="flex flex-row justify-center h-full items-end">
+    <div [class.items-start]="align === 'start'" [class.items-center]="align === 'center'"
+        class="flex flex-col justify-center w-full">
+        <p class="text-xs font-thin" style="color: white">{{ upperTitle }}</p>
+        <div class="flex flex-row items-end sm-tab-input text-xl p-0">
+            <div class="flex flex-row items-end">
+                <div class="target text-2xl input font-black w-full p-0 m-0 text-center" [class.yellow]="isPrice">
+                    {{ target }}
+                </div>
+                @if (isPrice && renderCurrency) {
+                <div class="ms-1 text-xs yellow font-black" style="font-size: 8px; line-height: 2.5;">{{
+                    settingsService.countryInfo.currency }}</div>
+                }
+
+            </div>
+            <p class="font-thin ms-1" style="font-size: 8px;line-height: 2.5;">{{ title | translate }}</p>
+        </div>
+    </div>
+</div>

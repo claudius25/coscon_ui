@@ -1,0 +1,40 @@
+<div [class.background]="!transparentBg" [class.shadow]="!transparentBg"
+    class="my-card flex flex-row justify-center items-center" [class.px-4]="!hideControls">
+    @if (!hideControls) {
+    <div class="sign text-xl relative" (click)="decrement()">
+        -
+    </div>
+    <div class="sign sign-xs text-lg relative ms-4" (click)="decrementSmall()">
+        -
+    </div>
+    }
+    <div class="sm-tab-input p-0" [class.expanded]="controlsExpanded()">
+        <div [ngClass]="smallInputText ? 'justify-end' : 'justify-center'" class="flex flex-row items-end">
+            @if (target) {
+            <div class="">
+                <input type="number" [class.text-lg]="smallInputText" class="input font-black p-0 m-0 text-center"
+                    [(ngModel)]="target" />
+            </div>
+            }
+            @if (targetNumber !== -1 && !target) {
+            <div class="input-wrapper">
+                <span #sizeSpan class="text-2xl size-span font-black"></span>
+                <input type="number" [class.text-lg]="smallInputText" class="input font-black p-0 m-0 text-center"
+                    (ngModelChange)="targetChange()" [(ngModel)]="targetNumber" />
+            </div>
+            <span class="font-black" style="font-size: 8px;">{{suffix}}</span>
+
+            }
+        </div>
+        <p class="text-sm font-thin text-center">{{ title }}</p>
+    </div>
+
+    @if (!hideControls) {
+    <div class=" sign sign-xs text-xl relative me-4" (click)="incrementSmall()">
+        +
+    </div>
+    <div class="sign text-xl font-bold relative" (click)="increment()">
+        +
+    </div>
+    }
+</div>

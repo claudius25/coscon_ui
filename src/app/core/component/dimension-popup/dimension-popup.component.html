@@ -1,0 +1,28 @@
+@if(info) {
+
+@if (!info.open) {
+<div class="dimension-value" (click)="openInput(info)">
+    {{ info.signal() }}<span class="text-sm font-thin">m</span>
+</div>
+}
+@if (info.open) {
+<div id="dimension-popup" class="edit-controls">
+    @if (info.type === 'width') {
+    <app-input-increment [title]=" 'common.width' | translate" [min]="0.1" [target]="info.signal"
+        (updated)="emitChanged()"></app-input-increment>
+    }
+    @if (info.type === 'length') {
+    <app-input-increment [title]="'common.length' | translate" [min]="0.1" [target]="info.signal"
+        (updated)="emitChanged()"></app-input-increment>
+    }
+    @if (info.type === 'length1') {
+    <app-input-increment [title]="'common.length' | translate" [min]="0.1" [target]="info.signal"
+        (updated)="emitChanged()"></app-input-increment>
+    }
+    @if (info.type === 'height') {
+    <app-input-increment [title]="'common.thick' | translate" [min]="0.1" [target]="info.signal"
+        (updated)="emitChanged()"></app-input-increment>
+    }
+</div>
+}
+}

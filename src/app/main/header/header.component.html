@@ -1,0 +1,92 @@
+<div class="logo-button" [class.expand]="isMenuExpanded" [class.shadow]="isMenuExpanded">
+    <div class="flex w-full justify-between">
+        <div class="relative flex gap-2 loggo cursor-pointer">
+            <div style="width: 24px; height: 24px;" class="invert" (mousedown)="openMenuDialog()">
+                <svg viewBox="0 0 500 500" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M 342.29 284.507 L 470.5 284.507 C 454.401 394.732 362.369 479.223 251.248 479.223 C 128.78 479.223 29.5 376.596 29.5 250 C 29.5 123.404 128.78 20.777 251.248 20.777 C 361.342 20.777 452.697 103.713 470.034 212.442 L 410.744 212.442 C 393.917 139.255 330.266 84.817 254.316 84.817 C 165.52 84.817 93.536 159.227 93.536 251.017 C 93.536 342.807 165.52 417.217 254.316 417.217 C 331.235 417.217 395.536 361.384 411.364 286.785 L 341.337 286.785 C 326.974 319.925 294.788 343.011 257.385 343.011 C 206.605 343.011 165.44 300.458 165.44 247.966 C 165.44 195.474 206.605 152.921 257.385 152.921 C 296.016 152.921 329.082 177.548 342.693 212.442 L 410.744 212.442 C 410.918 213.199 411.087 213.959 411.251 214.72 L 343.548 214.72"
+                        style="stroke-width: 26px; fill: none; stroke: rgb(0, 0, 0);"
+                        transform="matrix(1.0000000000000002, 0, 0, 1.0000000000000002, 0, 1.4210854715202004e-14)" />
+                </svg>
+            </div>
+
+
+
+            <span class="coscon-text logo-text" [style.display]="isMenuExpanded ? 'inline' : 'none'">
+                <span class="yellow">Cos</span>
+                <span style="color: #c1bbdd;" class="lightblue">Con</span>
+            </span>
+        </div>
+
+        <div class="x-btn cursor-pointer" style=" text-align: right;" (mousedown)="closeMenuDialog()"
+            [style.display]="showMenuExpandedContent() ? 'inline' : 'none'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+        </div>
+    </div>
+
+
+    <div class="expand-body text-lg font-medium my-6 h-full flex-col"
+        [style.display]="showMenuExpandedContent() ? 'flex' : 'none'">
+
+        <div class="flex flex-col gap-2 text-2xl">
+            <div class="menu-item ms-6 cursor-pointer" (click)="goTo('/')">{{ 'main.home' | translate | uppercase}}
+            </div>
+            <div class="menu-item mt-6 ms-6 cursor-pointer" (click)="goTo('/select-project')"><a>{{ 'main.menu1' |
+                    translate | uppercase}}</a></div>
+            <div class="menu-item ms-6 cursor-pointer" (click)="goTo('/load-project')"><a>{{
+                    'main.menu1_1' | translate | uppercase}}</a></div>
+            <!-- <div class="menu-item ms-6 cursor-pointer" (click)="goTo('/simulator')"><a>{{ 'main.menu2' | translate |
+                    uppercase}}</a></div>
+            <div class="menu-item ms-6 cursor-pointer" (click)="goTo('/simulator')"><a>{{ 'main.menu3' | translate |
+                    uppercase}}</a></div> -->
+            <!-- <div class="menu-item mt-6 ms-6 cursor-pointer" (click)="goTo('/settings')"><a>{{ 'main.menu5' | translate |
+                    uppercase}}</a></div> -->
+
+
+            <div class="menu-item ms-6 mt-6 cursor-pointer" (click)="goTo('/mission')"><a>{{ 'footer.mission' |
+                    translate | uppercase}}</a></div>
+            <div class="menu-item ms-6 cursor-pointer" (click)="goTo('/contact')"><a>{{ 'footer.contact' |
+                    translate | uppercase}}</a></div>
+            <div class="menu-item ms-6 mt-2 cursor-pointer w-1/2">
+                <nav>
+                    <div class="grid grid-flow-col gap-4">
+                        <a href="https://x.com/CosConApp" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                                </path>
+                            </svg></a>
+                        <a href="https://www.youtube.com/@CosConApp" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                class="fill-current">
+                                <path
+                                    d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                                </path>
+                            </svg></a>
+                        <a href="https://www.instagram.com/coscon.app" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24"
+                                viewBox="0 0 50 50" class="fill-current">
+                                <path
+                                    d="M 16 3 C 8.8324839 3 3 8.8324839 3 16 L 3 34 C 3 41.167516 8.8324839 47 16 47 L 34 47 C 41.167516 47 47 41.167516 47 34 L 47 16 C 47 8.8324839 41.167516 3 34 3 L 16 3 z M 16 5 L 34 5 C 40.086484 5 45 9.9135161 45 16 L 45 34 C 45 40.086484 40.086484 45 34 45 L 16 45 C 9.9135161 45 5 40.086484 5 34 L 5 16 C 5 9.9135161 9.9135161 5 16 5 z M 37 11 A 2 2 0 0 0 35 13 A 2 2 0 0 0 37 15 A 2 2 0 0 0 39 13 A 2 2 0 0 0 37 11 z M 25 14 C 18.936712 14 14 18.936712 14 25 C 14 31.063288 18.936712 36 25 36 C 31.063288 36 36 31.063288 36 25 C 36 18.936712 31.063288 14 25 14 z M 25 16 C 29.982407 16 34 20.017593 34 25 C 34 29.982407 29.982407 34 25 34 C 20.017593 34 16 29.982407 16 25 C 16 20.017593 20.017593 16 25 16 z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div style="margin-top: auto;" class="flex justify-center gap-2">
+
+            <app-button [yellow]="false" style="width: 100px;height: 50px;" [title]="'main.menu6' | translate |
+                    uppercase" (click)="goTo('/signin')"></app-button>
+
+            <app-button style="width: 100px;height: 50px;" [title]="'main.menu4' | translate |
+                    uppercase" (click)="goTo('/login')"></app-button>
+
+        </div>
+    </div>
+</div>
